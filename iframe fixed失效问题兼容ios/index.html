@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scale=no">
+    <meta charset="UTF-8">
+    <title>iframe-子页面</title>
+    <link rel="stylesheet" type="text/css" href="css/iframe-son.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+<body>
+<header id="header">Header</header>
+<main id="main">
+    <div class="one big">子页面滚动<br>Header+Footer背景色变<span class="red">红色</span><br>父页面背景色变<span class="green">浅绿色</span>!</div>
+    <div class="one">这里是子页面2</div>
+    <div class="one">这里是子页面3</div>
+    <div class="one">这里是子页面4</div>
+    <div class="one">这里是子页面5</div>
+    <div class="one">这里是子页面6</div>
+    <div class="one">这里是子页面7</div>
+    <div class="one">这里是子页面8</div>
+    <div class="one">这里是子页面9</div>
+    <div class="one">这里是子页面10</div>
+    <div class="one">这里是子页面11</div>
+    <div class="one">这里是子页面12</div>
+    <div class="one">这里是子页面13</div>
+    <div class="one">这里是子页面14</div>
+    <div class="one">这里是子页面15</div>
+</main>
+<footer id="footer">footer</footer>
+<script type="text/javascript">
+
+    $(function(){
+        var winH = $(window).height();
+        var headerH = $('header').get(0).offsetHeight;
+        var footerH = $('footer').get(0).offsetHeight;
+
+        $('main').css('height',winH-headerH); //iframe滚动关键点1
+
+        //滚动时
+        $('main').on('scroll',function(){
+            //$('#header').css({'position':'absolute','top':$(window).scrollTop(),'background':'blue'});
+            $('#header,#footer').css({'background':'#ff0000'});
+            $('#iframe-outer',window.parent.document).css({'background':'rgba(0, 188, 212,0.2)'}); //获取iframe父框架的元素(可以,本域能够实现)
+        })
+    });
+
+</script>
+</body>
+</html>
